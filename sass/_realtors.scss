@@ -8,17 +8,38 @@
   justify-content: center;
   justify-items: center;
 
+  @media only screen and (max-width: $bp-tablet-768 ) {
+    grid-column: full-start / full-end; 
+  }
+
   &__list {
     display: grid;
     grid-template-columns: min-content max-content;
     gap: 5vh 2rem;
     align-items: center;
+
+    @media only screen and (max-width: $bp-tablet-768) {
+      grid-template-columns: repeat(3, min-content max-content);
+      column-gap: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-tablet-600) {
+      grid-template-columns: min-content max-content;
+    }
   }
 
   &__avatar {
     height: 10rem;
     width: 10rem;
     border-radius: 50%;
+
+    @media only screen and (max-width: $bp-tablet-768) {
+      margin-right: -1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-tablet-600) {
+      margin-right: 0;
+    }
   }
 
   &__sold {

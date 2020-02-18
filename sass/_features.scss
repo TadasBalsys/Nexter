@@ -3,9 +3,13 @@
   grid-column: center-start / center-end;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem , 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   gap: 6rem;
   align-items: start;
+
+  @media only screen and (max-width: $bp-tablet-500) {
+    margin: 7rem 0;
+  }
 }
 
 .feature {
@@ -13,7 +17,11 @@
   grid-template-columns: min-content 1fr;
   gap: 1.5rem 2.5rem;
 
-  &__icon{
+  @media only screen and (max-width: $bp-tablet-500) {
+    grid-column: 1 / -1;
+  }
+
+  &__icon {
     fill: $color-primary;
     width: 4.5rem;
     height: 4.5rem;
@@ -22,7 +30,7 @@
     transform: translateY(-1rem);
   }
 
-  &__text{
+  &__text {
     font-size: 1.7rem;
   }
 }

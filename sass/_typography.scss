@@ -9,6 +9,15 @@
   color: $color-grey-light-1;
   line-height: 1;
 
+  @media only screen and (max-width: $bp-desktop-1024) {
+    line-height: 1.2;
+  }
+
+  @media only screen and (max-width: $bp-mobile_l-425) {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    align-self: center;
+  }
 }
 
 .heading-2 {
@@ -58,6 +67,11 @@
   cursor: pointer;
   transition: all 0.2s;
 
+  @media only screen and (max-width: $bp-tablet-768) {
+    //  font-size: 1.2rem;
+    padding: 1.5rem 2.2rem 1.2rem;
+  }
+
   &:hover {
     background-color: $color-primary-dark;
   }
@@ -65,10 +79,17 @@
 
 .mb-sm {
   margin-bottom: 2rem;
+  @media only screen and (max-width: $bp-tablet-500) {
+    margin-bottom: 1rem;
+  }
 }
 
 .mb-md {
   margin-bottom: 3rem;
+
+  @media only screen and (max-width: $bp-tablet-500) {
+    margin-bottom: 1.5rem;
+  }
 }
 
 .mb-lg {

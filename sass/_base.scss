@@ -14,8 +14,20 @@ $color-grey-dark-2: #6d5d4b;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
+// Breakpoints
+$bp-desktop-1024: 64em;
+$bp-tablet-768: 48em;
+$bp-tablet-600: 37.5em;
+$bp-tablet-500: 31.25em;
+$bp-mobile_l-425: 26.57em;
+$bp-mobile_s-320: 20em;
+
 :root {
   font-size: 62.5%; // 1rem = 10px
+
+  @media only screen and (max-width: $bp-desktop-1024) {
+    font-size: 50%; // 1rem = 8px
+  }
 }
 
 *,
@@ -44,10 +56,27 @@ body {
     [sidebar-start]
     8rem
     [sidebar-end full-start]
-    minmax(6rem , 1fr)
+    minmax(6rem, 1fr)
     [center-start]
     repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
     [center-end]
-    minmax(6rem , 1fr)
+    minmax(6rem, 1fr)
     [full-end];
+
+  @media only screen and (max-width: $bp-tablet-768) {
+    // deleted "min-content" values in grid-template-rows, because the automatic placement algorithm will create implicit rows with default rows height (default grid-auto-rows: auto; - row height is min-content, that the cell could fit all content. If the screen size is large enough the cell will grow tp max-content
+    grid-template-rows: 6rem calc(100vh - 6rem);
+    grid-template-columns:
+      [full-start]
+      minmax(6rem, 1fr)
+      [center-start]
+      repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+      [center-end]
+      minmax(6rem, 1fr)
+      [full-end];
+  }
+
+  @media only screen and (max-width: $bp-mobile_l-425) {
+    grid-template-rows: 6rem 75vh;
+  }
 }
